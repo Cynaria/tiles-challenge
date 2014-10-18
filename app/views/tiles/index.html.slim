@@ -1,4 +1,9 @@
 #table
-	-@tiles.each do |tile|
-		.tile
-			p #{tile.string}
+	-@tiles.each do |tile_row|
+		.tile-row
+			-tile_row.each do |tile|
+				.tile
+					.tile-front
+					.tile-back
+						span #{tile.string}
+

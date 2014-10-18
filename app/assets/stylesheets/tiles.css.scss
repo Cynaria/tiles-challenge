@@ -1,0 +1,39 @@
+$margin: 3%;
+@mixin rowMaker($numPerRow, $margin){
+	$width: ((100% - (($numPerRow - 1) * $margin)) / $numPerRow);
+	margin: 0 $margin $margin 0;
+	&:nth-child(#{$numPerRow}n){
+		margin-right: 0;
+	}
+	width: $width;
+}
+
+
+#table{
+	padding-top: $margin;
+}
+.tile{
+	@include rowMaker(8, $margin);
+	display: inline-block;
+	float: left;
+	border: 3px solid #806f62;
+	border-radius: 3px;
+}
+
+.tile-front{
+
+}
+.tile-back{
+	position: relative;
+  height: 100%;
+	padding: 5px;
+	span{
+		max-width: 80%;
+		text-align: center;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%,-50%);
+		position: absolute;	
+		word-wrap: break-word;
+	}
+}
