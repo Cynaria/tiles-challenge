@@ -10,8 +10,8 @@ We want to test out your full-stack development abilities.  Everything from an i
 
 Here's what we're looking for:
 
-* Display a 8x8 grid of clickable tiles, each of which contains a unique string (movie characters, colors, bands, etc. Have fun with it!). 
-* Randomize the tiles on load
+* -Display a 8x8 grid of clickable tiles, each of which contains a unique string (movie characters, colors, bands, etc. Have fun with it!). 
+* -Randomize the tiles on load
 * Clicking any tile fires an AJAX request that places the click timestamp and tile value on a Sidekiq queue.
 * When the user clicks on a tile, it dissapears
 * When (if) the last tile is clicked, the tile board is replaced with a list of the 10 most chosen strings along with their click counts.

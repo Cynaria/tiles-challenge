@@ -18,22 +18,25 @@ $margin: 3%;
 	float: left;
 	border: 3px solid #806f62;
 	border-radius: 3px;
-}
+  transition:background-color 0.5s ease;
 
-.tile-front{
+	.tile-back{
+		display:none;
+		position: relative;
+	  height: 100%;
+		padding: 5px;
+		span{
+			max-width: 80%;
+			text-align: center;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+			position: absolute;	
+			word-wrap: break-word;
+		}
+	}
 
-}
-.tile-back{
-	position: relative;
-  height: 100%;
-	padding: 5px;
-	span{
-		max-width: 80%;
-		text-align: center;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%,-50%);
-		position: absolute;	
-		word-wrap: break-word;
+	.no-click{
+		background-color: #c47685;
 	}
 }

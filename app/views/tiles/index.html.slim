@@ -3,7 +3,7 @@
 		.tile-row
 			-tile_row.each do |tile|
 				.tile
-					.tile-front
-					.tile-back
+					/ .tile-front
+					.tile-back id="#{tile.id}"
 						span #{tile.string}
 
