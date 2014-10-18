@@ -1,5 +1,6 @@
 class TileClick
   include Mongoid::Document
-  field :timestamp, type: DateTime
+  include Mongoid::Timestamps
+  
   embedded_in :tile
 end
