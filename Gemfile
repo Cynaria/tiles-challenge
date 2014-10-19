@@ -16,6 +16,7 @@ gem 'sinatra', '>= 1.3.0', :require => nil # used for sidekiq web interface
 gem 'slim'
 gem 'slim-rails'
 gem 'uglifier', '>= 1.3.0'
+gem 'unicorn-rails'
 gem 'sidekiq'
 gem 'json'
 
