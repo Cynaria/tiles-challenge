@@ -12,8 +12,8 @@ Here's what we're looking for:
 
 * -Display a 8x8 grid of clickable tiles, each of which contains a unique string (movie characters, colors, bands, etc. Have fun with it!). 
 * -Randomize the tiles on load
-* Clicking any tile fires an AJAX request that places the click timestamp and tile value on a Sidekiq queue.
-* When the user clicks on a tile, it dissapears
+* -Clicking any tile fires an AJAX request that places the click timestamp and tile value on a Sidekiq queue.
+* -When the user clicks on a tile, it dissapears
 * When (if) the last tile is clicked, the tile board is replaced with a list of the 10 most chosen strings along with their click counts.
 * Handle server-side exceptions by turning that tile red.  Show how you handle exceptions by throwing an exception server-side when you click on one of the tiles (at random).
 * A Sidekiq worker processes jobs asyncronously from the queue then persists the changes to a mongo database.

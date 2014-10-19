@@ -18,6 +18,7 @@ gem 'slim-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn-rails'
 gem 'sidekiq'
+gem 'sidekiq-status'
 gem 'json'
 
 group :test do

@@ -2,7 +2,7 @@ class TileClick
   include Mongoid::Document
   include Mongoid::Timestamps
   
-  field :timestamps, type: String
+  field :timestamp, type: String
 
   embedded_in :tile
 end
