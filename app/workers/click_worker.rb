@@ -1,24 +1,21 @@
 class ClickWorker
 	include Sidekiq::Worker
+	include Sidekiq::Status::Worker
+
 	sidekiq_options :retry => false
 
-			sidekiq_retries_exhausted do |msg|
-				render status: :internal_server_error
-		  end
+		sidekiq_retries_exhausted do |msg|
+			render status: :internal_server_error
+	  end
 
 	def perform(params)
-		begin
 			random_error
-			tile = Tile.find(params[:id])
+			tile = Tile.find(params["id"])
 
-			tile_click = tile.tile_clicks.create(timestamp: params[:timestamp])
-		rescue
-		end
+			tile_click = tile.tile_clicks.create(timestamp: params["timestamp"])
 	end
 
-	def job_status
-		
-	end
+
 
 	# only here for random error creation
 	def random_error

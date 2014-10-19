@@ -17,7 +17,6 @@ $( document ).ready(function(){
 			var data = {"id": tileId,
 									"timestamp": timestamp};
 			var url = "/tile-click";
-			console.log(timestamp + " " + tileId);
 			$(e.currentTarget.children[0]).fadeIn("slow", function(){
 			});
 			$(e.currentTarget).toggleClass('no-click');
@@ -28,28 +27,31 @@ $( document ).ready(function(){
         url: url,
         data: data,
         dataType: "JSON",
-        error: function(xhr, status){
-					console.log(xhr);
-					if (xhr.status == 500){
-						setTimeout(function() {
-						$(e.currentTarget.children[0]).fadeOut("slow", function(){
-						$(e.currentTarget).css('background-color', '#c47685');
-						$(e.currentTarget.children[0]).remove();
-						});
-						}, 1000);
-					}
+        success: function(response){
+					// console.log(response);
+					// data = {job_id: response};
+					// debugger;
+					pollServer(response);
+					// if (xhr.status == 500){
+					// 	setTimeout(function() {
+					// 	$(e.currentTarget.children[0]).fadeOut("slow", function(){
+					// 	$(e.currentTarget).css('background-color', '#c47685');
+					// 	$(e.currentTarget.children[0]).remove();
+					// 	});
+					// 	}, 1000);
+					// }
 				},
-        complete: function(xhr,status){
-					console.log(xhr);
-					if(xhr.status == 200){
-						setTimeout(function() {
-						$(e.currentTarget.children[0]).fadeOut("slow", function(){
-						$(e.currentTarget).css('background-color', '#ba643c');
-						$(e.currentTarget.children[0]).remove();
-						});
-						}, 1000);
-					}
-				}
+    //     complete: function(xhr,status){
+				// 	console.log(xhr);
+				// 	if(xhr.status == 200){
+				// 		setTimeout(function() {
+				// 		$(e.currentTarget.children[0]).fadeOut("slow", function(){
+				// 		$(e.currentTarget).css('background-color', '#ba643c');
+				// 		$(e.currentTarget.children[0]).remove();
+				// 		});
+				// 		}, 1000);
+				// 	}
+				// }
       });
 		}
 
@@ -59,6 +61,14 @@ $( document ).ready(function(){
 
 	});
 
+
+	function pollServer(data){
+		setTimeout(function() {
+			$.post('/job-status', data, function(response){
+				console.log(response);
+			});
+		},1000);
+	}
 
 	// resize box heigh to equal width
 	function calcBoxHeight() {

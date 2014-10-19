@@ -1,6 +1,7 @@
 TilesChallenge::Application.routes.draw do
   root 'tiles#index'
   post '/tile-click', to: 'tile_clicks#create'
+  post '/job-status', to: 'tile_clicks#tile_click_status'
 
   # Sidekiq web interface
   #   acess via localhost:3000/sidekiq

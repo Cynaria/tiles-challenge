@@ -16,7 +16,7 @@ Here's what we're looking for:
 * -When the user clicks on a tile, it dissapears
 * When (if) the last tile is clicked, the tile board is replaced with a list of the 10 most chosen strings along with their click counts.
 * Handle server-side exceptions by turning that tile red.  Show how you handle exceptions by throwing an exception server-side when you click on one of the tiles (at random).
-* A Sidekiq worker processes jobs asyncronously from the queue then persists the changes to a mongo database.
+* -A Sidekiq worker processes jobs asyncronously from the queue then persists the changes to a mongo database.
 
 
 ## Guidelines
