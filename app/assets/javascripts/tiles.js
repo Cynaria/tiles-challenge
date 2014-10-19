@@ -14,10 +14,14 @@ $( document ).ready(function(){
 			e.preventDefault();
 			var timestamp = Date.now();
 			var tileId = e.currentTarget.children[0].id;
+			var data = {"id": tileId,
+									"timestamps": timestamp};
+			var url = "/tile-click";
 			console.log(timestamp + " " + tileId);
 			$(e.currentTarget.children[0]).fadeIn("slow", function(){
 			});
 			$(e.currentTarget).toggleClass('no-click');
+
 			setTimeout(function() {
 				$(e.currentTarget.children[0]).fadeOut("slow", function(){
 					$(e.currentTarget).css('background-color', '#c47685');
@@ -25,6 +29,13 @@ $( document ).ready(function(){
 				});
 				
 			}, 1000);
+
+			$.ajax({
+				type: "POST",
+        url: url,
+        data: data,
+        dataType: "JSON"
+      });
 		}
 
 
