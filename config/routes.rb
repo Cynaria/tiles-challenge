@@ -1,4 +1,7 @@
 TilesChallenge::Application.routes.draw do
+  root 'tiles#index'
+  post '/tile-click', to: 'tile_clicks#create'
+  post '/job-status', to: 'tile_clicks#tile_click_status'
 
   # Sidekiq web interface
   #   acess via localhost:3000/sidekiq
@@ -13,7 +16,6 @@ TilesChallenge::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
