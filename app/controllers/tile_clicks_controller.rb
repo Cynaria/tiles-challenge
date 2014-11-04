@@ -1,8 +1,6 @@
 class TileClicksController < ApplicationController
 	# require "click_worker"
 	def create
-		# tile = Tile.find(tile_clicks_params[:id])
-		# puts tile
 		@job_id = ClickWorker.perform_async(tile_clicks_params)
 		render json: {job_id: @job_id}
 	end

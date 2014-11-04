@@ -7,3 +7,12 @@
 					.tile-back id="#{tile.id}"
 						span #{tile.string}
 
+#stats
+	table
+		tr
+			th Tile
+			th Clicks
+		- @t.each do |tile|
+				tr
+					td #{tile.string}
+					td #{tile.click_count}

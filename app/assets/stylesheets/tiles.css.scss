@@ -8,17 +8,21 @@ $margin: 3%;
 	width: $width;
 }
 
+body{
+	font-family: 'helvetica';
+}
 
 #table{
 	padding-top: $margin;
 }
+
 .tile{
 	@include rowMaker(8, $margin);
 	display: inline-block;
 	float: left;
 	border: 3px solid #806f62;
 	border-radius: 3px;
-  transition:background-color 0.5s ease;
+  transition: background-color 0.5s ease;
 
 	.tile-back{
 		display:none;
@@ -36,7 +40,23 @@ $margin: 3%;
 		}
 	}
 
-	.no-click{
-		background-color: #c47685;
+}
+
+#stats{
+	display: none;
+	margin: $margin;
+	float: left;
+	width: 100%;
+	table{
+		width: 60%;		
+		margin: 0 auto;
+		text-align: center;
+		th{
+			text-align: center;
+		}
+		td{
+			@include rowMaker(2, $margin);
+			padding: 5px;
+		}
 	}
 }
